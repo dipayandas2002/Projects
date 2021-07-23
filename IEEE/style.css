@@ -91,3 +91,18 @@ a:active{
 .container{
     margin: 0;
 }
+.ending{
+    display:flex;
+    background-color: black;
+    justify-content: center;
+    font-size: 1.25rem;
+    padding-block: 20px;
+    color: white;
+}
+.smh{
+display: flex;
+flex-direction: row;
+}
+.smh a:hover {
+transform: rotateY(30deg);
+}
