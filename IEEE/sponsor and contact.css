@@ -1,0 +1,53 @@
+#sponsor{
+    display:flex;
+    justify-content: center;
+    
+    text-align: center;
+    margin: 20px;
+    
+}
+#sponsor h2{
+    border-bottom: 2px solid red;
+    display: inline;
+    width: fit-content;
+    padding-bottom: 15px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.contact{
+    background-image: linear-gradient(rgb(191, 191, 248),white);
+    
+}
+.sponsors img{
+    display: inline-block;
+    height: 12.5rem;
+    width: 25rem;
+    /* border: 1px solid blue; */
+    margin: 25px;
+}
+.sponsors{
+    /* border: 1px solid red; */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 150px;
+}
+#IEEE{
+    width: 50%;
+    /* border: 1px solid red; */
+    padding: 50px;
+    margin:20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#IEEE h2{
+    font-weight: bold;
+}
+#IEEE img{
+    height: 50px;
+    width: 50px;
+    margin-inline: 10px;
+    
+}
