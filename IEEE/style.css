@@ -43,6 +43,13 @@
     
     
 }
+.smh{
+    display: flex;
+    flex-direction: row;
+    }
+    .smh a:hover {
+    transform: rotateY(30deg);
+    }
 
 .end div{
     margin: 12px;
@@ -98,11 +105,4 @@ a:active{
     font-size: 1.25rem;
     padding-block: 20px;
     color: white;
-}
-.smh{
-display: flex;
-flex-direction: row;
-}
-.smh a:hover {
-transform: rotateY(30deg);
 }
