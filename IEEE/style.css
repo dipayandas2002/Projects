@@ -43,11 +43,8 @@
     
     
 }
-.smh{
-    display: flex;
-    flex-direction: row;
-    }
-    .smh a:hover {
+
+.smh a:hover {
     transform: rotateY(30deg);
     }
 
