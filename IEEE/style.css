@@ -1,0 +1,91 @@
+
+ #logo{
+    height: 62px;
+    width: 252px;
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    
+}
+.item{
+    font-family: monospace;
+    color: black;
+}
+.item:hover{
+    border-bottom: 1px solid black;
+}
+
+
+.cardContainer{
+    box-sizing: border-box;
+}
+.card {
+    color: white;
+    float: left;
+    width: calc(25% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+    margin:10px;
+   
+    box-sizing: border-box;
+    height: 200px;
+}
+
+
+.contact{
+    display: flex;
+    flex-direction: row;
+}
+.end{
+    display: flex;
+    padding: 20px;
+    margin: 5px;
+
+    
+    
+}
+
+.end div{
+    margin: 12px;
+    /* border: 1px solid red; */
+    padding: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.end h2, h4{
+    font-weight: bold;
+}
+.bg{
+    background:linear-gradient(rgb(206, 206, 252),#aeabce);
+    width: 100vw;
+   
+}
+a:active{
+    color: blue;
+}
+
+
+@media screen and (max-width: 750px) {
+    .about{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #event{
+        width: 100%;
+    }
+    
+    .card {
+        width: 98%;
+        margin: 4px;
+    }
+  .contact{  
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    #IEEE{
+        width: 100%;
+    }
+   
+  }
+
+.container{
+    margin: 0;
+}
