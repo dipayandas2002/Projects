@@ -1,0 +1,199 @@
+form{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    /* background-color: rgba(128, 128, 128, 0.555);
+     */
+    background: #0766859d;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fff, #07668588);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fff, #0766859d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+font-family: 'comfortaa';
+z-index: 10;
+/* opacity: 0; */
+visibility: hidden;
+
+
+}
+
+.full{
+    opacity: 1;
+    
+
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0;
+     
+}
+
+
+#pin{
+    padding-left: 10px;
+    border-radius: 13px;
+    border: 2px solid black;
+    position: relative;
+    left: 48px;
+}
+
+#pin:focus{
+    outline: none;
+    box-shadow: 0px 0px 0px 1px rgb(177, 238, 182);
+}
+
+form{
+      
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+}
+
+.formBody{
+    position: relative;
+    top: -670px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    border-right: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(2, 0, 0);
+    border-left: 2px solid rgb(129, 112, 112);
+    border-top: 2px solid rgb(122, 113, 113);
+    border-radius: 10px;
+    padding: 20px;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.62,.02,.72,1.47);
+    background-color: rgba(0, 0, 0, 0.71);
+    background-color: transparent;
+    box-shadow: 9px 10px 11px 0px #00000083;;
+
+}
+.formBody div{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 300px;
+    /* border: 1px solid red; */
+    height: 35px;
+    margin-block-end: 10px;
+    /* overflow: hidden; */
+   
+}
+.formBody input[type = text]{
+    width: 85%;
+    background-color: transparent;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-left: 15px;
+    border: 2px solid black;
+}
+.formBody input[type = text]:focus{
+    outline:none;
+    box-shadow: 0px 0px 0px 1px rgb(177, 238, 182);
+  
+}
+
+.formBody div span{
+    display: flex;
+    justify-content: left;
+}
+#terms{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+#terms span{
+    margin-right: 8px;
+    position: relative;
+    top: -3px;
+}
+#btn{
+    justify-content: space-around;
+}
+.formBody div img{
+    
+    height: 32px;
+    width: 32px;
+}
+#Textarea{
+    height: 100px;
+    background-color: transparent;
+    margin-block: 10px;
+    
+}
+textarea{
+    border: 2px solid black;
+    position: relative;
+    top: -13px;
+    left: 1px;
+    border-radius: 13px;
+    padding: 9px;
+}
+textarea:focus{
+    outline: none;
+    box-shadow: 0px 0px 0px 1px rgb(177, 238, 182);
+}
+#radio{
+    position: relative;
+    top: 10px;
+}
+#radio img{
+    position: relative;
+    top: -8px;
+}
+#send:enabled{
+    /* background-color: blueviolet; */
+    border: 2px solid blue;
+    /* box-shadow: -3px 3px 6px 1px #69656d; */
+    border-radius: 08px;
+    width: 100px;
+    font-family: 'comfortaa';
+    font-weight: bolder;
+}
+#close:enabled{
+    /* background-color: blueviolet; */
+    border: 2px solid blue;
+    /* box-shadow: -3px 3px 6px 1px #69656d; */
+    border-radius: 08px;
+    width: 100px;
+    font-family: 'comfortaa';
+    font-weight: bolder;
+}
+#send:disabled{
+    border-radius: 08px;
+    width: 100px;
+    font-family: 'comfortaa';
+    background-color: grey;
+}
+.click{
+    
+    box-shadow: 0px 0px 6px 1px #160116;
+    font-family: 'comfortaa';
+    
+}
+#btn{
+    overflow: visible;
+}
+#send:enabled:hover{
+    cursor: pointer;
+    font-family: 'comfortaa';
+    box-shadow: 0px 0px 8px grey;
+}
+#close:hover{
+    cursor: pointer;
+    font-family: 'comfortaa';
+    box-shadow: 0px 0px 8px grey;
+}
+
+input::placeholder{
+    font-family: 'comfortaa';
+    color: black;
+}

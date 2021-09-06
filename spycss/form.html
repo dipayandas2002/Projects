@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+   <form action="/index.html">
+    <div class="formBody">
+            <div><img src="./Images/user.png" alt=""><input type="text" placeholder="Name"></div>
+
+            <div><img src="./Images/message.png" alt=""><input type="text" placeholder="Email"></div>
+
+            <div><img src="./Images/call.png" alt=""><input type="text" placeholder="Phone Number"></div>
+
+            <div id="radio"><img src="./Images/gender.png" alt=""><input type="radio" name="sex" id="">Male <input type="radio"
+                    name="sex" id="">Female
+                <input type="radio" name="sex" id="">Other
+            </div>
+
+            <div><img src="./Images/address.png" alt=""><input type="text" placeholder="Adress"></div>
+
+            <div class="text" id="Textarea"><img src="./Images/write.png" alt=""><Textarea id="Textarea" placeholder="Write to us"
+                    cols="30"></Textarea>
+            </div>
+
+            <div id="terms"><span>I agree to Terms and Conditions</span>
+                <input type="checkbox"  name="" id="checkme"
+                    onchange="document.getElementById('send').disabled = !this.checked">
+            </div>
+
+            <div id="btn"><Button type="submit" onclick="clickBtn()" disabled id="send">Submit</Button>
+            <Button onclick="close()" id="close"  >Close</Button>
+            </div>
+        </div>
+        
+        
+   </form>
+</body>
+<script>
+    function clickBtn() {
+        setTimeout(() => {
+            document.getElementById("send").classList.remove("click");
+        }, 150);
+
+        document.getElementById("send").classList.add("click");
+        alert("Your Registration Is Done");
+    }
+</script>
+
+</html>
