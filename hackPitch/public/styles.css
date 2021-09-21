@@ -3,10 +3,11 @@
    */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .card-group {
   margin: 20px;
+  
 }
 .card {
   margin: 20px;
