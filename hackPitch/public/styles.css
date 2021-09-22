@@ -1,7 +1,7 @@
 .body{
   /* overflow-y: scroll;
    */
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
@@ -85,4 +85,13 @@ nav{
   align-items: center;
   justify-content: center;
 
+}
+#profilebtn{
+  position: absolute;
+  /* float: right; */
+  right: 27px;
+  top: 14px;
+}
+#form{
+  width: 107vw;
 }

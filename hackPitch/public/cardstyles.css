@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  width: 100vw;
+  overflow-x: hidden;
+  background: #fff;
+  overflow-y: scroll;
+}
+h1 {
+  text-decoration: solid;
+  color: #461dff;
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.grid-row {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(311px, 1fr));
+    grid-gap: 1px;
+    margin: 20px 0;
+}
+.card-top img {
+  display: block;
+  width: 100%;
+  position: relative;
+  top: -34px;
+}
+.card-bottom {
+  padding: 20px;
+}
+.container {
+  width: 75%;
+  margin: auto;
+}
+.card {
+  background: rgb(196, 201, 255);
+  padding: 0px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+}
+.card-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  height: 199px;
+}
+
+.card-info h2 {
+  font-size: 18px;
+  margin: 10px 0 5px 0;
+}
+.date {
+  margin-bottom: 10px;
+}
+
+span,
+p {
+  font-size: 16px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+.time {
+  margin: 15px;
+  font-size: 15px;
+  font-style: italic;
+  font-family: "Open Sans", sans-serif;
+}
+.excerpt {
+  color: #aeaeae;
+}
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-bottom {
+  margin-top: 20px;
+}
+.button {
+  text-decoration: unset;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #4e4e4e;
+  width: 80px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 30px;
+  border-radius: 5px;
+  background: #f2f4f6;
+}
+.read-more {
+  text-decoration: unset;
+  color: #000;
+  font-weight: 600;
+}
+.btn-blue {
+  background: #461dff;
+  color: #ffffff;
+}
+.btn-sky {
+  background: #d2f9fe;
+}
+.btn-dpink {
+  background: #e8d3fc;
+}
+.icon {
+  margin-left: 7px;
+  margin-right: 7px;
+  color: #070c4e;
+}
+.icons {
+  margin: 3px;
+}
+.button-18 {
+  align-items: center;
+  background-color: #461dff;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
+    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus {
+  background-color: #16437e;
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, 0.7);
+}
+
+.button-18:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.3);
+}

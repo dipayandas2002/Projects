@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 
 app.get('/login', function (req, res) {
-    res.render("login");
+    res.render("login",{issues :null});
 
 
 })
@@ -50,43 +50,6 @@ app.get('/register', function (req, res) {
 
 
 })
-
-//my style of filter
-
-app.post("/", function (req, res) {
-
-
-
-
-
-    bcrypt.hash(req.body.password, saltRounds).then(function (hash) {
-        //    console.log(hash); //hashed password
-        let newperson = new Form({
-
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            countryCode: req.body.countryCode,
-            phone: req.body.phone,
-            jobtitle: req.body.jobtitle,
-            password: req.body.password,
-            passwordConfirmation: req.body.passwordConfirmation
-        })
-
-        newperson.save();
-    });
-
-    res.redirect("/login")
-
-
-
-
-})
-
-
-
-
-
 
 app.post('/register', (req, res) => {
     // console.log(req.body);
@@ -109,7 +72,7 @@ app.post('/register', (req, res) => {
             newperson.save();
         });
         // res.send("akdm ok ache");
-        res.render("login")
+        res.render("login",{issues : null})
     }
     else {
         res.render("register", { issue: "passwords are not same" })
@@ -117,30 +80,30 @@ app.post('/register', (req, res) => {
 })
 
 
-
 app.post("/login", (req, res) => {
 
-    Form.findOne({ firstname: req.body.name }, (err, data) => {
+    Form.findOne({ email: req.body.email }, (err, data) => {
         if (data !== null) {
+            // console.log(data);
             bcrypt.compare(req.body.password, data.password).then(function (result) {
                 if (result === true) {
                     //    res.send(data) //rendering the data
                     // console.log(mess);
 
                     if (data.jobtitle === "messowner") {
-                        messowner = data.firstname;
+                        messowner = data.email;
                         client.read({
                             limit: 1,
-                            search: { 'Name': req.body.name },
+                            search: { 'Email': data.email },
                         }).then(function (data1) {
 
-                            console.log(data1.length);
+                            // console.log(data1.length);
 
 
                             if (data1.length === 2) {
 
                                 // res.send("no pg")
-                                client.create({ Name:messowner}).then(function(data) {
+                                client.create({ Email:messowner , Name : data.firstname+" "+data.lastname}).then(function(data) {
                                     // console.log(data);
                                   }, function(err){
                                     console.log(err);
@@ -154,7 +117,7 @@ app.post("/login", (req, res) => {
                                     fname: data.firstname, lname: data.lastname, email: data.email, phonenumber: data.phone, element: json[0]
 
                                 })
-                                messowner = data.firstname;
+                                messowner = data.email;
                                 // console.log(json);
                                 // messdata = data1;
                             }
@@ -168,24 +131,26 @@ app.post("/login", (req, res) => {
                             .then(function (response) {
                                 //   console.log(response.data);
                                 mess = response.data;
+                                student = data;
+                                res.render("index", { mess: mess, sname: student.firstname + " " + student.lastname, semail: student.email, snumber: student.phone })
                             })
                             .catch(function (error) {
                                 // handle error
                                 console.log(error);
                             })
-                        student = data;
-                        res.render("index", { mess: mess, sname: student.firstname + " " + student.lastname, semail: student.email, snumber: student.phone })
                     }
                 }
+                else{ res.render("login",{issues :"Wrong Password"}) }
             });
 
         }
-        else res.send("no user exists")
+        // else res.send("no user exists")
+       else{ res.render("login",{issues :" No user Exists"}) }
+        // JSAlert.alert("Your files have been saved successfully.", "Files Saved", "Got it");
         // console.log(data);
     })
 
 })
-
 
 
 app.post("/index", (req, res) => {
@@ -199,7 +164,7 @@ app.post("/index", (req, res) => {
             // handle error
             console.log(error);
         })
-    console.log(req.body);
+    // console.log(req.body);
     let { gender, parking, food, occupancy } = req.body
 
     let newfilter = mess.filter((element, index) => {
@@ -234,11 +199,11 @@ app.post("/index", (req, res) => {
 app.post("/messowner", (req, res) => {
     // console.log(req.body);
 
-    let { Location, Highlight, Food, Gender, Occupancy, Parking, Notice, Distance, Eastablished, Deposit, Price, Contact } = req.body
+    let { Description, Location, Highlight, Food, Gender, Occupancy, Parking, Notice, Distance, Availability, Eastablished, Deposit, Price, Contact } = req.body
 
-    let array = ["Location", "Highlight", "Food", "Gender", "Occupancy", "Parking", "Notice", "Distance", "Eastablished", "Deposit", "Price", "Contact"]
+    let array = ["Description", "Location", "Highlight", "Food", "Gender", "Occupancy", "Parking", "Notice", "Distance","Availability", "Eastablished", "Deposit", "Price", "Contact"]
 
-    let arraydata = [Location, Highlight, Food, Gender, Occupancy, Parking, Notice, Distance, Eastablished, Deposit, Price, Contact]
+    let arraydata = [Description, Location, Highlight, Food, Gender, Occupancy, Parking, Notice, Distance,Availability, Eastablished, Deposit, Price, Contact]
 
     // let object = {
     //     id: '',
@@ -267,15 +232,15 @@ app.post("/messowner", (req, res) => {
         }
 
     }
-    console.log(object1);
+    // console.log(object1);
 
     client.update(
-        'Name', // column name
+        'Email', // column name
         messowner, // value to search for
          object1 // object with updates
         
       ).then(function(data) {
-        console.log(data);
+        // console.log(data);
         res.redirect("/messowner")
       }, function(err){
         console.log(err);
@@ -286,7 +251,7 @@ app.post("/messowner", (req, res) => {
 app.get("/messowner", (req, res) => {
     client.read({
         limit: 1,
-        search: { 'Name': messowner },
+        search: { 'Email': messowner },
     }).then(function (data2) {
 
         let json1 = [{
@@ -311,18 +276,22 @@ app.get("/messowner", (req, res) => {
 
         json1 = JSON.parse(data2)
         res.render("profile", {
-            fname: json1[0].Name, lname: "", email: "", phonenumber: json1[0].Contact, element: json1[0]
+            fname: json1[0].Name, lname: "", email: messowner, phonenumber: json1[0].Contact, element: json1[0]
 
         })
         // messowner = data.firstname;
-        console.log(json1);
+        // console.log(json1);
         // messdata = data1;
     }, function (err) {
         console.log(err);
     });
 })
 
+
 app.get("/addpg", (req, res) => {
-    res.render("addpg", { fname:messowner, lname: "", email: "", phonenumber: "", element: "" })
+    Form.findOne({email : messowner},(err , data)=>{
+
+        res.render("addpg", { fname:data.firstname, lname: data.lastname, email: messowner, phonenumber: data.phone, element: "" })
+    })
 })
 

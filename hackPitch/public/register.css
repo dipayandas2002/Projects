@@ -63,3 +63,13 @@ select.form-control {
 .form-control:focus {
     box-shadow: none;
 }
+#issue{
+    color: red;
+    position: absolute;
+    /* border: 1px solid red; */
+    bottom: 124px;
+    right: 25%;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

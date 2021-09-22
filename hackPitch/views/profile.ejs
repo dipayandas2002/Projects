@@ -19,12 +19,13 @@
 <body>
 
   <div class="card p-4" id="profile">
-    <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
-        class="new-btn "> <img src="https://avatar.oxro.io/avatar.svg?name=<%=fname%>&length=2&background=38155c&rounded=100%&bold=true&caps=3" height="100" width="100" /></button>
+    <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="new-btn "> <img
+          src="https://avatar.oxro.io/avatar.svg?name=<%=fname%>&length=2&background=38155c&rounded=100%&bold=true&caps=3"
+          height="100" width="100" /></button>
       <span class="name mt-3">
         <%= fname %>
           <%= lname %>
-      </span> <span class="idd">STUDENT/PG owner</span>
+      </span> <span class="idd">PG owner</span>
       <!--here type- student or PG owner-->
       <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">
           <%= email %>
@@ -32,7 +33,7 @@
       <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number"> Phone Number:
           <%= phonenumber %>
         </span> </div>
-      
+
       <div class="text mt-3"> <span>Created Profile at PG Hunt. <br><br> Maintained by PG Hunt team </span> </div>
       <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
             class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
@@ -61,18 +62,20 @@
           <p class="card-text">
             <%= element.Description %>
           </p>
-          
+
           <div>
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Deposit Amount
                 <span class="badge badge-primary badge-pill">
-                  <%= element.Price %>
+                  <%= element.Deposit %>
                 </span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                Maintanence
-                <span class="badge badge-primary badge-pill">-</span>
+                Distance in km
+                <span class="badge badge-primary badge-pill">
+                  <%= element.Distance %>
+                </span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Notice Period
@@ -96,7 +99,9 @@
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Number of Beds
-                <span class="badge badge-primary badge-pill">4</span>
+                <span class="badge badge-primary badge-pill">
+                  <%= element.Availability %>
+                </span>
               </li>
             </ul>
             <ul class="list-group">
@@ -132,16 +137,20 @@
   <div id="edit-pg">
     <div class="head-profile">Edit your PG</div>
     <form class="row gx-3 gy-2 align-items-center" id="form-edit-pg" method="POST" action="/messowner">
-      <div class="mb-3">
-        <label for="formFile" class="form-label">PG Image</label>
-        <input class="form-control" type="file" id="formFile" >
+      <div class="col-mb-3">
+        <label for="formFile" class="form-label">Description</label>
+        <input type="text" class="form-control" id="" name="Description">
       </div>
       <div class="mb-3">
-        <label for="formFile" class="form-label">Attach PG location</label>
+        <label for="formFile" class="form-label">PG Image link</label>
+        <input class="form-control" type="text" id="">
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Attach PG location link</label>
         <input type="text" class="form-control" id="inputEmail4" placeholder="Embed from Google Maps" name="Location">
       </div>
       <div class="col-md-11">
-        <label for="inputEmail4" class="form-label">Provide PG Highlights</label>
+        <label for="inputEmail4" class="form-label">Provide PG Name</label>
         <input type="text" class="form-control" id="inputEmail4" placeholder="Good PG" name="Highlight">
       </div>
       <div class="col-md-11">
@@ -183,12 +192,16 @@
         </select>
       </div>
       <div class="col-sm-3">
-        <label for="inputEmail4" class="form-label">Notice Period</label>
+        <label for="inputEmail4" class="form-label">Notice Period(in months)</label>
         <input type="text" class="form-control" id="inputEmail4" name="Notice">
       </div>
       <div class="col-sm-6">
         <label for="inputEmail4" class="form-label">Distance from JU (in km)</label>
         <input type="text" class="form-control" id="inputEmail4" name="Distance">
+      </div>
+      <div class="col-sm-6">
+        <label for="inputEmail4" class="form-label">Availability</label>
+        <input type="number" class="form-control" id="inputEmail4" name="Availability">
       </div>
       <div class="col-sm-3">
         <label for="inputEmail4" class="form-label">Established Date</label>
@@ -204,9 +217,9 @@
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Contact Number</label>
-        <input type="text" class="form-control" id="inputEmail4" name="Contact" >
+        <input type="text" class="form-control" id="inputEmail4" name="Contact">
       </div>
-     
+
       <div class="col-auto">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
